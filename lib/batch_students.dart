@@ -1,5 +1,5 @@
-import 'package:advisor_ui_selfstack/status_student.dart';
 import 'package:flutter/material.dart';
+import 'status_student.dart';
 
 class StudentsBatchScreen extends StatelessWidget {
   const StudentsBatchScreen({Key? key}) : super(key: key);
@@ -48,24 +48,23 @@ class StudentsBatchScreen extends StatelessWidget {
               ),
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 43, 43, 43),
-                borderRadius: BorderRadius.circular(15.0), 
+                borderRadius: BorderRadius.circular(15.0),
               ),
-           child: ListTile(
-  leading: const CircleAvatar(
-    backgroundImage: AssetImage('assets/avatar_image.png'),
-  ),
-  title: Text('Student $index', style: const TextStyle(color: Colors.white)),
-  subtitle: Text('Details about Student $index'),
-  onTap: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => StatusOfStudent(),
-      ),
-    );
-  },
-),
-
+              child: ListTile(
+                leading: const CircleAvatar(
+                  backgroundImage: AssetImage('assets/avatar_image.png'),
+                ),
+                title: Text('Student $index', style: const TextStyle(color: Colors.white)),
+                subtitle: Text('Details about Student $index'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => StatusOfStudent(),
+                    ),
+                  );
+                },
+              ),
             );
           },
         ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class StudentsBatchScreen extends StatelessWidget {
-  const StudentsBatchScreen({Key? key}) : super(key: key);
+class Students extends StatelessWidget {
+  const Students({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
