@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'status_student.dart';
 
-class StudentsBatchScreen extends StatelessWidget {
+class StudentsBatchScreen extends StatefulWidget {
   const StudentsBatchScreen({Key? key}) : super(key: key);
+
+  @override
+  _StudentsBatchScreenState createState() => _StudentsBatchScreenState();
+}
+
+class _StudentsBatchScreenState extends State<StudentsBatchScreen> {
+  List<StudentData> studentsList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +43,7 @@ class StudentsBatchScreen extends StatelessWidget {
           ),
         ),
         child: ListView.builder(
-          itemCount: 8,
+          itemCount: studentsList.length,
           itemBuilder: (context, index) {
             return Container(
               width: double.infinity,
@@ -52,10 +59,11 @@ class StudentsBatchScreen extends StatelessWidget {
               ),
               child: ListTile(
                 leading: const CircleAvatar(
-                  backgroundImage: AssetImage('assets/avatar_image.png'),
+                  backgroundColor: Colors.black,
+                  backgroundImage: AssetImage('assets/image.png'),
                 ),
-                title: Text('Student $index', style: const TextStyle(color: Colors.white)),
-                subtitle: Text('Details about Student $index'),
+                title: Text(studentsList[index].name, style: const TextStyle(color: Colors.white)),
+                subtitle: Text(studentsList[index].details,style: const TextStyle(color: Colors.white)),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -69,6 +77,80 @@ class StudentsBatchScreen extends StatelessWidget {
           },
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _showAddStudentDialog(context);
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.green,
+      ),
     );
   }
+
+  Future<void> _showAddStudentDialog(BuildContext context) async {
+    String name = '';
+    String details = '';
+
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Add Student', style: TextStyle(color: Colors.white)),
+          backgroundColor: const Color.fromARGB(255, 56, 56, 56),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                decoration: const InputDecoration(
+                  labelText: 'Student Name',
+                  labelStyle: TextStyle(color: Colors.white),
+                ),
+                onChanged: (value) {
+                  name = value;
+                },
+              ),
+              TextField(
+                decoration: const InputDecoration(
+                  labelText: 'Details',
+                  labelStyle: TextStyle(color: Colors.white),
+                ),
+                onChanged: (value) {
+                  details = value;
+                },
+              ),
+            ],
+          ),
+          actions: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                _addNewStudent(name, details);
+              },
+              child: Text('Submit'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _addNewStudent(String name, String details) {
+    setState(() {
+      final newStudent = StudentData(name: name, details: details);
+      studentsList.add(newStudent);
+    });
+  }
+}
+
+class StudentData {
+  final String name;
+  final String details;
+
+  StudentData({required this.name, required this.details});
 }
