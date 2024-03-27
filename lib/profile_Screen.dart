@@ -56,7 +56,7 @@ class AdvisorProfile extends StatelessWidget {
                                   ),
                                 ),
                                 SizedBox(
-                                  height: 60,
+                                  height: 70,
                                 ),
                                 SizedBox(
                                   child: ElevatedButton.icon(
