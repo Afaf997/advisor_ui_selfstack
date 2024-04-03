@@ -15,7 +15,7 @@ class _ReviewUpdatingPageState extends State<ReviewUpdatingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: const Color.fromARGB(255, 82, 203, 86),
+        color: Color.fromARGB(255, 68, 183, 72),
         child: Column(
           children: [
             AppBar(
