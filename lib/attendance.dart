@@ -52,7 +52,7 @@ class _AttendancePageState extends State<DomainPage> {
         onPressed: () {
           _showAddDialog(context);
         },
-        child:  Icon(Icons.add),
+        child:  const Icon(Icons.add),
         backgroundColor: Colors.green,
       ),
     );
@@ -63,12 +63,12 @@ class _AttendancePageState extends State<DomainPage> {
       margin: const EdgeInsets.all(10.0),
       padding: const EdgeInsets.all(10.0),
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 66, 65, 65), 
+        color:const Color.fromARGB(255, 66, 65, 65), 
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: Column(
         children: [
-          SizedBox(height: 20,),
+         const SizedBox(height: 20,),
           Image.asset(
             'assets/image.png',
             height: 70,
@@ -97,12 +97,12 @@ class _AttendancePageState extends State<DomainPage> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Add Container',style: TextStyle(color: Colors.white),),
-          backgroundColor: Color.fromARGB(255, 56, 56, 56), // Set background color of the dialog
+          backgroundColor: const Color.fromARGB(255, 56, 56, 56),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0), // Set border radius of the dialog
+            borderRadius: BorderRadius.circular(20.0), 
           ),
           content: Column(
-            mainAxisSize: MainAxisSize.min, // Adjust the size of the dialog
+            mainAxisSize: MainAxisSize.min, 
             children: [
               TextField(
                 controller: textController,
@@ -119,10 +119,10 @@ class _AttendancePageState extends State<DomainPage> {
                 Navigator.of(context).pop();
                 _addNewContainer(text);
               },
-              child: const Text('Add'),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green, // Set button color
               ),
+              child: const Text('Add'),
             ),
           ],
         );
