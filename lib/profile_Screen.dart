@@ -39,15 +39,15 @@ class AdvisorProfile extends StatelessWidget {
 
                                   ),
                                 ),
-                                SizedBox(height: 8.0),
-                                Text(
+                               const SizedBox(height: 8.0),
+                               const Text(
                                   'Advisor: ',
                                   style: TextStyle(
                                     fontSize: 18.0,
                                     color: Colors.white,
                                   ),
                                 ),
-                                SizedBox(height: 8.0),
+                               const SizedBox(height: 8.0),
                                 Text(
                                  'email',
                                   style: TextStyle(
@@ -55,7 +55,7 @@ class AdvisorProfile extends StatelessWidget {
                                     color: Colors.white,
                                   ),
                                 ),
-                                SizedBox(
+                               const SizedBox(
                                   height: 70,
                                 ),
                                 SizedBox(
